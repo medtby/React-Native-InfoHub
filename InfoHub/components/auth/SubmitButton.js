@@ -2,8 +2,9 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import Text from "@kaloraat/react-native-text";
 
-const SubmitButton = ({title}) => (
+const SubmitButton = ({title, handleSubmit, loading}) => (
     <TouchableOpacity
+    onPress={handleSubmit}
             style={{
                 backgroundColor:"#ff9900",
                 height: 50,
@@ -13,7 +14,7 @@ const SubmitButton = ({title}) => (
                 borderRadius: 24,
             }}
             >
-                <Text bold medium center>{title}</Text>
+                <Text bold medium center>{loading ? 'Patientez..' : title}</Text>
             </TouchableOpacity>
 );
 
