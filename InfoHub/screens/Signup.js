@@ -6,7 +6,6 @@ import SubmitButton from '../components/auth/SubmitButton';
 import axios from 'axios';
 import Logo from '../components/auth/Logo';
 
-
 const Signup = () => {
     const[name, setName] = useState("");
     const[email, setEmail] = useState("");
@@ -34,6 +33,7 @@ const Signup = () => {
             console.log(err);
             setLoading(false);
         }
+        navigation.navigate('Login');
     };
 
     return (
@@ -52,8 +52,7 @@ const Signup = () => {
             <UserInput name="EMAIL" value={email} setValue={setEmail} autoCompleteType="email" keyboardType="email-address"/>
             <UserInput name="PASSWORD" value={password} setValue={setPassword} secureTextEntry={true} autoCompleteType="password"/>
             
-            <SubmitButton title="Sign Up" handleSubmit={handleSubmit} loading={loading}/>
-
+            <SubmitButton title="Sign Up" onPress={handleSubmit} loading={loading}/>
         </View>
     );
 };
